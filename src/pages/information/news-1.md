@@ -1,4 +1,6 @@
 ---
+layout: ../../layouts/BlogLayout.astro
+author: "MTeng"
 title: "关于yumingxing"
 date: "2024-04-08"
 ---

@@ -1,6 +1,9 @@
 ---
+layout: ../../layouts/BlogLayout.astro
 title: "我的第二篇独立站日记"
-date: "2024-04-08"
+date: "2020-04-08"
+author: "MTeng"
+---
 ---
 
 好，我们立刻进入**内容型架构的核心战役 —— Markdown 博客系统接入**。
