@@ -17,21 +17,22 @@ jobs:
       - name: Checkout your repository
         uses: actions/checkout@v4
 
-      # --- 关键修复：安装 Node 22 ---
-      - name: Setup Node.js
+      # 关键纠错点 1：手动强制安装 Node 22
+      - name: Install Node.js v22
         uses: actions/setup-node@v4
         with:
-          node-version: 22.12.0  # 👈 强制使用 Astro 要求的最低版本
+          node-version: 22
           cache: 'npm'
 
+      # 关键纠错点 2：在运行构建之前先手动安装依赖
       - name: Install dependencies
         run: npm install
 
-      - name: Build and Upload to Pages
+      # 关键纠错点 3：调用 Astro 插件，并告知它不要再重复安装依赖
+      - name: Build with Astro
         uses: withastro/action@v2
-        with:
-          package-manager: npm
-          # 这里不需要再额外写 build 脚本，action 会自动处理
+        # 注意：这里我们不再需要 with: package-manager，
+        # 因为我们在上一步已经安装好了，插件会自动识别构建产物。
 
   deploy:
     needs: build
