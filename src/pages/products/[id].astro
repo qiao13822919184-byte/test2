@@ -19,7 +19,7 @@ const { product } = Astro.props;
 <!-- 🌟 2. 使用骨架，并把动态产品名作为网页标题传进去！ -->
 <BaseLayout title={product.name}>
   
-  <a href="/" style="color: #666; text-decoration: none;">⬅ 返回首页</a>
+  <a href={import.meta.env.BASE_URL}>⬅ 返回首页</a>
   
   <div style="margin-top: 20px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
     <h1>{product.name}</h1>

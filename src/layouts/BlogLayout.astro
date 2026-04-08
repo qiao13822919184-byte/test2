@@ -9,7 +9,7 @@ const { frontmatter } = Astro.props;
 <!-- 🌟 2. 把大骨架包裹在最外层 -->
 <BaseLayout title={frontmatter.title}>
   
-  <a href="/blog" style="color: #666; text-decoration: none;">⬅ 返回博客列表</a>
+  <a href={${import.meta.env.BASE_URL}blog}>⬅ 返回博客列表</a>
   
   <!-- 文章标题和元信息 -->
   <h1 style="margin-top: 20px;">{frontmatter.title}</h1>
